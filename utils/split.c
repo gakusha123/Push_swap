@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:28:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/23 13:30:16 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:29:01 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
 
 static int	safe_malloc(char **split_string, int position, size_t buffer)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils6.c                                           :+:      :+:    :+:   */
+/*   nodes_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:34:15 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:03:44 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:26:55 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
 
 /* create and return a new node (single-element circular list) */
 t_list	*node_new(int content)

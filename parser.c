@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:51:54 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:25:48 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"
 #include <stdio.h> //replace printf with our ft_printf do not forget
 
 //idk if we need to check if there are zeros before our ints

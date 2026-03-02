@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:02:16 by btheveny         ###   ########.fr       */
+/*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
+/*   Updated: 2026/03/02 18:32:33 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "push_swap.h"  //../push_swap.h pour le pathing du header
 
 static int	get_nth_content(t_list *stack, size_t i)
 {

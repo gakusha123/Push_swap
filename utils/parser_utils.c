@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   parser_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:13:33 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:27:28 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "../push_swap.h"
 
 int	ft_isdigit(char c)
 {
@@ -60,4 +60,14 @@ void	free_tokens(char **tokens)
 		i++;
 	}
 	free(tokens);
+}
+
+int	parse_error(t_list **a, char **tokens)
+{
+	if (tokens)
+		free_tokens(tokens);
+	if (a)
+		stack_clear(a);
+	write(2, "Error\n", 6);
+	return (1);
 }
