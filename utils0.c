@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/26 15:22:20 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:11:24 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,17 @@ int	ft_atoi(const char *str)
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
-
 	if (!lst || !new)
 		return ;
 	if (*lst == NULL)
 	{
 		*lst = new;
+		new->next = new;
+		new->prev = new;
 		return ;
 	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
+	new->next = *lst;
+	new->prev = (*lst)->prev;
+	(*lst)->prev->next = new;
+	(*lst)->prev = new;
 }

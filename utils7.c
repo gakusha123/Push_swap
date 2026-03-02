@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   utils7.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 13:26:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:11:09 by btheveny         ###   ########.fr       */
+/*   Created: 2026/03/02 15:39:53 by btheveny          #+#    #+#             */
+/*   Updated: 2026/03/02 16:06:25 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "stack.h"
+#include "stack.h"
 
-t_list	*ft_lstpop_front(t_list **stack)
+void	index_sort(t_list **stack, size_t len)
 {
-	t_list	*pop;
+	size_t	i;
+	size_t	len1;
+	size_t	len2;
+	int		tmp;
 
-	if (stack == NULL || *stack == NULL)
-		return (NULL);
-	pop = *stack;
-	if (pop->next == pop)
+	len1 = len;
+	while (len1 > 0)
 	{
-		*stack = NULL;
-		pop->next = pop->prev = NULL;
-		return (pop);
+		i = 0;
+		tmp = (*stack)->value;
+		len2 = len;
+		while (len2 > 0)
+		{
+			if (tmp > (*stack)->next->value)
+				i++;
+			len2--;
+			(*stack) = (*stack)->next;
+		}
+		(*stack)->index = i;
+		(*stack) = (*stack)->next;
+		len1--;
 	}
-	pop->prev->next = pop->next;
-	pop->next->prev = pop->prev;
-	*stack = pop->next;
-	pop->next = pop->prev = NULL;
-	return (pop);
 }
-
-*/

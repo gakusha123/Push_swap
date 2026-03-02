@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 19:16:34 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:12:41 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,20 @@ int	is_token_in_int_range(const char *s)
 	return (1);
 }
 
-static int	has_duplicate(t_list *a, int value, int j)
+static int	has_duplicate(t_list *a, int value)
 {
-	if (j != 0 && a == NULL)
+	if (a == NULL)
+		return (1);
 	{
-		return (0);
-	}
-	while (j != 0 && a)
-	{
-		if (a->content == value)
-			return (0);
-		a = a->next;
+		t_list *head = a;
+		t_list *cur = head;
+		do {
+			if (cur->value == value)
+				return (0);
+			cur = cur->next;
+			if (!cur)
+				break;
+		} while (cur != head);
 	}
 	return (1);
 }
@@ -92,6 +95,7 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 	int		value;
 	char	**tokens;
 	t_list	*node;
+	size_t	len;
 
 	i = 1;
 	j = 0;
@@ -118,7 +122,7 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 			if (!is_token_in_int_range(tokens[j]))
 				return (parse_error(a, tokens));
 			value = ft_atoi(tokens[j]);
-			if (!has_duplicate(*a, value, j))
+			if (!has_duplicate(*a, value))
 				return (parse_error(a, tokens));
 			node = node_new(value);
 			if (!node)
@@ -128,6 +132,12 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 		}
 		free_tokens(tokens);
 		i++;
+	}
+	/* after building the list, assign indices using original index_sort (in utils7.c) */
+	if (a && *a)
+	{
+		len = stack_len(*a);
+		index_sort(a, len);
 	}
 	return (0);
 

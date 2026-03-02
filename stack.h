@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 19:14:23 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:10:46 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,24 @@
 # include <unistd.h>
 # include <stdio.h> //a enlever il faut utiliser notre propre printf
 
-typedef struct s_list
+/*typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
+}	t_list;*/
+
+typedef struct s_list
+{
+	int				value;
+	int				index;
+	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
+
+typedef struct s_data
+{
+	size_t	len_list;
+}	t_data;
 
 typedef enum e_strategy
 {
@@ -63,6 +76,7 @@ int			set_strategy(t_opts *o, t_strategy s);
 int			parse_one_flag(const char *s, t_opts *o);
 void		opts_init(t_opts *o);
 const char	*strat_name( t_strategy strategy);
+void		index_sort(t_list **stack, size_t len);
 
 /* only to debug */
 void		stack_print(t_list *stack);

@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 19:24:13 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 16:01:26 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@ static int	get_nth_content(t_list *lst, size_t index)
 	size_t	k;
 
 	k = 0;
-	while (lst && k < index)
+	if (!lst)
+		return (0);
+	while (k < index)
 	{
 		lst = lst->next;
 		k++;
+		if (!lst)
+			return (0);
 	}
-	if (!lst)
-		return (0);
-	return (lst->content);
+	return (lst->value);
 }
 
 size_t	stack_len(t_list *lst)
 {
 	size_t	i;
+	t_list	*head;
 
-	i = 0;
-	while (lst)
+	if (!lst)
+		return (0);
+	head = lst;
+	i = 1;
+	while (lst->next && lst->next != head)
 	{
-		i++;
 		lst = lst->next;
+		i++;
 	}
 	return (i);
 }
@@ -73,7 +79,7 @@ float	disorder(t_list *a)
 	i = 0;
 	total_pairs = 0;
 	mistakes = 0;
-	len = stack_len(a); // a changer en fonction de la liste chainee quon utilise 
+	len = stack_len(a); // a changer en fonction de la liste chainee quon utilise
 	if (len < 2)
 		return (0.0f);
 	count_mistakes_and_pairs(i, &mistakes, &total_pairs, len, a);
