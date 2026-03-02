@@ -6,7 +6,10 @@ SRC = parser.c \
 	utils/parsing_index.c \
 	utils/split.c \
 	utils/split_utils.c \
-	utils/utils.c
+	utils/utils.c \
+	utils/parser_utils2.c \
+	main.c \
+#tu captes la syntaxe pour les fonctions dans un fichier pour que le nakefile les retrouve
 
 CC = cc
 

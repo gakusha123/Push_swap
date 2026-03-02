@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:51:49 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:58:35 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ typedef struct s_opts
 	t_strategy	strat;
 }	t_opts;
 
-
-
 t_list		*node_new(int value);
 void		stack_clear(t_list **stack);
 char		**ft_split(char const *s, char c);
@@ -69,6 +67,9 @@ int			parse_one_flag(const char *s, t_opts *o);
 void		opts_init(t_opts *o);
 const char	*strat_name( t_strategy strategy);
 void		index_sort(t_list **stack, size_t len);
+int			has_duplicate(t_list *stack, int value);
+int			is_token_in_int_range(const char *s);
+int			is_token_int(const char *s);
 
 /* only to debug */
 void		stack_print(t_list *stack);
