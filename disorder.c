@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 16:30:21 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 19:24:13 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ size_t	stack_len(t_list *lst)
 	}
 	return (i);
 }
+// ici possibilite de faire le disorder en une seule fonction en utilisant ->next pour comparer
 
 void	count_mistakes_and_pairs(size_t i, int *mistakes,
 	int *total_pairs, size_t len, t_list *a)
@@ -72,7 +73,7 @@ float	disorder(t_list *a)
 	i = 0;
 	total_pairs = 0;
 	mistakes = 0;
-	len = stack_len(a);
+	len = stack_len(a); // a changer en fonction de la liste chainee quon utilise 
 	if (len < 2)
 		return (0.0f);
 	count_mistakes_and_pairs(i, &mistakes, &total_pairs, len, a);

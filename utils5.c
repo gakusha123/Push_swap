@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 14:59:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 15:51:52 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 19:01:32 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@ int	is_flag(const char *s)
 	return (s && s[0] == '-' && s[1] == '-');
 }
 
+void	opts_init(t_opts *o)
+{
+	o->bench = 0;
+	o->strat_forced = 0;
+	o->strat = STRAT_ADAPTIVE;
+}
+
 int	set_strategy(t_opts *o, t_strategy s)
 {
-	if (o->strat_forced && o->strat != s)
+	if (o->strat_forced) //est-ce quon accepte --simple --simple ? si oui ajouter && o->strat != s mais je pense y a pas de raison daccepter ca
 		return (0);
 	o->strat = s;
 	o->strat_forced = 1;
@@ -44,13 +51,6 @@ int	parse_one_flag(const char *s, t_opts *o)
 	if (ft_strcmp(s, "--adaptive") == 0)
 		return (set_strategy(o, STRAT_ADAPTIVE));
 	return (0);
-}
-
-void	opts_init(t_opts *o)
-{
-	o->bench = 0;
-	o->strat_forced = 0;
-	o->strat = STRAT_ADAPTIVE;
 }
 
 const char	*strat_name(t_strategy strategy)

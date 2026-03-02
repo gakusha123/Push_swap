@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/02/28 16:46:48 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/02/28 19:16:34 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,6 @@ int	parse_input(int argc, char **argv, t_list **a, t_opts *opts)
 			ft_lstadd_back(a, node);
 			j++;
 		}
-		// stack_print(*a);
-		// printf("the disorder is %f\n", disorder(*a));
-		// printf("strategy = %s and bench = %d\n",
-		//	strat_name(opts->strat), opts->bench);
 		free_tokens(tokens);
 		i++;
 	}
@@ -150,12 +146,14 @@ int	main(int argc, char **argv)
 	if (!a)
 		return (0);
 
-	d = disorder(a); /* avant les moves */
-	//printf("disorder = %.3f\n", d);
-	//printf("This is stack a : ");
-	//stack_print(a);
-	//printf("This is stack b : ");
-	//stack_print(b);
+	d = disorder(a);
+	printf("strategy = %s and bench = %d\n",
+		strat_name(opts.strat), opts.bench);
+	printf("disorder = %.3f\n", d);
+	printf("This is stack a : ");
+	stack_print(a);
+	printf("This is stack b : ");
+	stack_print(b);
 
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
 	/* un prototype des fonctions de tri par exemple serait genre
