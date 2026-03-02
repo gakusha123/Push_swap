@@ -14,9 +14,11 @@ CFLAGS = -Wall -Wextra -Werror -I.
 
 NAME = push_swap
 
-OBJDIR = build #nom du dossier ou je veux mettre mes .o et .d crees pour fair eplus propre
+OBJDIR = build
+# nom du dossier ou je veux mettre mes .o et .d crees pour fair eplus propre #
 
-OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC)) #ransforme ta liste de .c en liste de .o, mais en les mettant dans build, patsubst jai trouve ca permet de substituer par pattern genre $(patsubst <motif>, <remplacement>, <liste>)
+OBJ = $(patsubst %.c,$(OBJDIR)/%.o,$(SRC))
+# transforme ta liste de .c en liste de .o, mais en les mettant dans build, patsubst ca permet de substituer par pattern genre $(patsubst <motif>, <remplacement>, <liste>) #
 
 DEP = $(OBJ:.o=.d)
 
