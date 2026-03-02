@@ -6,30 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:26:18 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:11:09 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:31:04 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include "stack.h"
-
-t_list	*ft_lstpop_front(t_list **stack)
-{
-	t_list	*pop;
-
-	if (stack == NULL || *stack == NULL)
-		return (NULL);
-	pop = *stack;
-	if (pop->next == pop)
-	{
-		*stack = NULL;
-		pop->next = pop->prev = NULL;
-		return (pop);
-	}
-	pop->prev->next = pop->next;
-	pop->next->prev = pop->prev;
-	*stack = pop->next;
-	pop->next = pop->prev = NULL;
-	return (pop);
-}
-
-*/

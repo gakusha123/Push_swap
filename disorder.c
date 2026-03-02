@@ -6,59 +6,61 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 16:24:38 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 16:01:26 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:02:16 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-static int	get_nth_content(t_list *lst, size_t index)
+static int	get_nth_content(t_list *stack, size_t i)
 {
 	size_t	k;
 
 	k = 0;
-	if (!lst)
+	if (!stack)
 		return (0);
-	while (k < index)
+	while (k < i)
 	{
-		lst = lst->next;
+		stack = stack->next;
 		k++;
-		if (!lst)
+		if (!stack)
 			return (0);
 	}
-	return (lst->value);
+	return (stack->value);
 }
 
-size_t	stack_len(t_list *lst)
+size_t	stack_len(t_list *stack)
 {
-	size_t	i;
+	size_t	len;
 	t_list	*head;
 
-	if (!lst)
+	if (!stack)
 		return (0);
-	head = lst;
-	i = 1;
-	while (lst->next && lst->next != head)
+	head = stack;
+	len = 1;
+	while (stack->next && stack->next != head)
 	{
-		lst = lst->next;
-		i++;
+		stack = stack->next;
+		len++;
 	}
-	return (i);
+	return (len);
 }
 // ici possibilite de faire le disorder en une seule fonction en utilisant ->next pour comparer
 
-void	count_mistakes_and_pairs(size_t i, int *mistakes,
-	int *total_pairs, size_t len, t_list *a)
+void	count_mistakes_and_pairs(float *mistakes,
+float *total_pairs, size_t len, t_list *stack) //jai mis le i directement la dedans au lieu de lextraire d la fonction disorder
 {
+	size_t	i;
 	size_t	j;
 
+	i = 0;
 	while (i < len - 1)
 	{
 		j = i + 1;
 		while (j < len)
 		{
 			(*total_pairs)++;
-			if (get_nth_content(a, i) > get_nth_content(a, j))
+			if (get_nth_content(stack, i) > get_nth_content(stack, j))
 				(*mistakes)++;
 			j++;
 		}
@@ -66,23 +68,21 @@ void	count_mistakes_and_pairs(size_t i, int *mistakes,
 	}
 }
 
-float	disorder(t_list *a)
+float	disorder(t_list *stack)
 {
-	int		mistakes;
-	int		total_pairs;
-	size_t	i;
+	float	mistakes;
+	float	total_pairs;
 	size_t	len;
 	float	result;
 
-	if (!a)
+	if (!stack)
 		return (0.0f);
-	i = 0;
 	total_pairs = 0;
 	mistakes = 0;
-	len = stack_len(a); // a changer en fonction de la liste chainee quon utilise
+	len = stack_len(stack); //jai modifie le len pour fit a liste chainee circlaire double
 	if (len < 2)
 		return (0.0f);
-	count_mistakes_and_pairs(i, &mistakes, &total_pairs, len, a);
-	result = (float)mistakes / (float)total_pairs;
+	count_mistakes_and_pairs(&mistakes, &total_pairs, len, stack);
+	result = mistakes / total_pairs;
 	return (result);
 }

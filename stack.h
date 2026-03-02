@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 16:10:46 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:35:57 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ typedef struct s_opts
 
 
 t_list		*node_new(int value);
-void		ft_lstadd_front(t_list **stack, t_list *node);
 void		stack_clear(t_list **stack);
-t_list		*ft_lstpop_front(t_list **stack);
 char		**ft_split(char const *s, char c);
 int			parse_input(int argc, char **argv, t_list **a, t_opts *opts);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlen(const char	*str);
 int			ft_atoi(const char *str);
-void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_node_add_back(t_list **stack, t_list *new_node);
 int			sign_checker(const char *s, const char **p);
 int			ft_isdigit(char c);
 int			ft_strcmp_10(const char *a, const char *b);

@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:11:24 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 17:35:45 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,19 @@ int	ft_atoi(const char *str)
 	return (result);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_node_add_back(t_list **stack, t_list *new_node)
 {
-	if (!lst || !new)
+	if (!stack || !new_node)
 		return ;
-	if (*lst == NULL)
+	if (*stack == NULL)
 	{
-		*lst = new;
-		new->next = new;
-		new->prev = new;
+		*stack = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
 		return ;
 	}
-	new->next = *lst;
-	new->prev = (*lst)->prev;
-	(*lst)->prev->next = new;
-	(*lst)->prev = new;
+	new_node->next = *stack;
+	new_node->prev = (*stack)->prev;
+	(*stack)->prev->next = new_node;
+	(*stack)->prev = new_node;
 }

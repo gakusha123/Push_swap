@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:34:15 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 17:24:06 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 18:03:44 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,7 @@ t_list	*node_new(int content)
 	res->prev = res;
 	res->next = res;
 	res->value = content;
-	res->index = -1;
 	return (res);
-}
-
-void	ft_lstadd_front(t_list **stack, t_list *new_node)
-{
-	if (!stack || !new_node)
-		return ;
-	if (!*stack)
-	{
-		*stack = new_node;
-		(*stack)->next = (*stack);
-		(*stack)->prev = (*stack);
-	}
-	else
-	{
-		new_node->prev = (*stack)->prev;
-		new_node->next = *stack;
-		(*stack)->prev->next = new_node;
-		(*stack)->prev = new_node;
-		*stack = new_node;
-	}
 }
 
 void	stack_clear(t_list **lst)
