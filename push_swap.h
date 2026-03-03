@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 15:19:05 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:22:58 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int			has_duplicate(t_list *stack, int value);
 int			is_token_in_int_range(const char *s);
 int			is_token_int(const char *s);
 void		simple_sort(t_list **stack_a, t_list **stack_b, size_t len);
+void		ft_node_add_front(t_list **stack, t_list *new_node);
 
 /*sorting opps*/
 

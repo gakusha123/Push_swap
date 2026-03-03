@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:34:15 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 19:04:19 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:23:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,25 @@ void	stack_print(t_list *head)
 		i++;
 	}
 }
+
+void	ft_node_add_front(t_list **stack, t_list *new_node)
+{
+	if (!stack || !new_node)
+		return ;
+	if (!*stack)
+	{
+		*stack = new_node;
+		(*stack)->next = (*stack);
+		(*stack)->prev = (*stack);
+	}
+	else
+	{
+		new_node->prev = (*stack)->prev;
+		new_node->next = *stack;
+		(*stack)->prev->next = new_node;
+		(*stack)->prev = new_node;
+		*stack = new_node;
+	}
+}
+
 
