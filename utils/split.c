@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:28:47 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:29:01 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:07:06 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	safe_malloc(char **split_string, int position, size_t buffer)
 	return (0);
 }
 
-static int	count_words(const char *str, char c)
+static int	count_words(const char *s, char c)
 {
 	int	i;
 	int	in_word;
@@ -40,14 +40,14 @@ static int	count_words(const char *str, char c)
 	i = 0;
 	in_word = 0;
 	word_count = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != c && in_word == 0)
+		if (s[i] != c && in_word == 0)
 		{
 			word_count++;
 			in_word = 1;
 		}
-		else if (str[i] == c && in_word == 1)
+		else if (s[i] == c && in_word == 1)
 			in_word = 0;
 		i++;
 	}
@@ -95,16 +95,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (split_string);
 }
-
-/*int main(void)
-{
-    char *str = "mira mi amor yo sigo aqui";
-    char **split_str = ft_split (str, ' ');
-    int i = 0;
-    while (split_str[i])
-    {
-        printf("%s\n", split_str[i]);
-        i++;
-    }
-    return (0);
-}*/

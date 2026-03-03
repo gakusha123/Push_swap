@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:20:28 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:32:33 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:02:46 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"  //../push_swap.h pour le pathing du header
+#include "push_swap.h" 
 
 static int	get_nth_content(t_list *stack, size_t i)
 {

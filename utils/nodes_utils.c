@@ -6,11 +6,11 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:34:15 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:26:55 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:04:19 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap.h" //../push_swap.h pour le pathing du header
 
 /* create and return a new node (single-element circular list) */
 t_list	*node_new(int content)
@@ -26,15 +26,15 @@ t_list	*node_new(int content)
 	return (res);
 }
 
-void	stack_clear(t_list **lst)
+void	stack_clear(t_list **stack)
 {
 	t_list	*head;
 	t_list	*cur;
 	t_list	*next;
 
-	if (!lst || !*lst)
+	if (!stack || !*stack)
 		return ;
-	head = *lst;
+	head = *stack;
 	cur = head->next;
 	while (cur != head)
 	{
@@ -43,13 +43,14 @@ void	stack_clear(t_list **lst)
 		cur = next;
 	}
 	free(head);
-	*lst = NULL;
+	*stack = NULL;
 }
 
+//utile que pou rle debug attention a bien virer apres
 void	stack_print(t_list *head)
 {
 	size_t	len;
-	t_list	*curr;
+	t_list	*cur;
 	size_t	i;
 
 	if (!head)
@@ -58,17 +59,17 @@ void	stack_print(t_list *head)
 		return ;
 	}
 	len = stack_len(head);
-	curr = head;
+	cur = head;
 	i = 0;
 	while (i < len)
 	{
-		printf("%d", curr->value);
-		printf(" (idx=%d)", curr->index);
+		printf("%d", cur->value);
+		printf(" (idx=%d)", cur->index);
 		if (i + 1 < len)
 			printf(" <-> ");
 		else
 			printf(" <-> (back to head)\n");
-		curr = curr->next;
+		cur = cur->next;
 		i++;
 	}
 }

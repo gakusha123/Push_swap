@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 13:30:53 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:27:28 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:04:54 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	free_tokens(char **tokens)
 	free(tokens);
 }
 
-int	parse_error(t_list **a, char **tokens)
+int	parse_error(t_list **stack, char **tokens)
 {
 	if (tokens)
 		free_tokens(tokens);
-	if (a)
-		stack_clear(a);
+	if (stack)
+		stack_clear(stack);
 	write(2, "Error\n", 6);
 	return (1);
 }

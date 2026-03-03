@@ -6,18 +6,18 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:43:12 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:28:48 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/02 19:06:27 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-size_t	ft_strlen(const char	*str)
+size_t	ft_strlen(const char	*s)
 {
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -40,7 +40,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *s)
 {
 	int	i;
 	int	neg_counter;
@@ -49,18 +49,18 @@ int	ft_atoi(const char *str)
 	i = 0;
 	neg_counter = 0;
 	result = 0;
-	while ((str[i] && (str[i] >= 9 && str[i] <= 13)) || (str[i] == ' '))
+	while ((s[i] && (s[i] >= 9 && s[i] <= 13)) || (s[i] == ' '))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (s[i] == '-' || s[i] == '+')
 	{
-		if (str[i] == '-')
+		if (s[i] == '-')
 			neg_counter += 1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (s[i] >= '0' && s[i] <= '9')
 	{
 		result *= 10;
-		result += str[i] - '0';
+		result += s[i] - '0';
 		i++;
 	}
 	if ((neg_counter % 2) == 1)
