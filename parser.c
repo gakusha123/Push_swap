@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 13:24:17 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:59:51 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:08:09 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,14 @@ int	parse_input(int argc, char **argv, t_list **stack, t_opts *opts)
 		free_tokens(tokens);
 		i++;
 	}
-	/* after building the list, assign indices using index_sort */
 	if (stack && *stack)
 	{
 		len = stack_len(*stack);
 		index_sort(stack, len);
 	}
 	return (0);
+
+
 
 }
 

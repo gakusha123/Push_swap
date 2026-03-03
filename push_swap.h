@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 15:02:30 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:19:05 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,23 @@ void		index_sort(t_list **stack, size_t len);
 int			has_duplicate(t_list *stack, int value);
 int			is_token_in_int_range(const char *s);
 int			is_token_int(const char *s);
+void		simple_sort(t_list **stack_a, t_list **stack_b, size_t len);
+
+/*sorting opps*/
+
+void		swap_a(t_list **stack_a);
+void		swap_b(t_list **stack_b);
+void		swap_ab(t_list **stack_a, t_list **stack_b);
+void		push_a(t_list **stack_a, t_list **stack_b);
+void		push_b(t_list **stack_b, t_list **stack_a);
+void		rotate_a(t_list **stack_a);
+void		rotate_b(t_list **stack_b);
+void		rotate_ab(t_list **stack_a, t_list **stack_b);
+void		rev_rotate_a(t_list **stack_a);
+void		rev_rotate_b(t_list **stack_b);
+void		rev_rotate_ab(t_list **stack_a, t_list **stack_b);
+
+
 
 /* only to debug */
 void		stack_print(t_list *stack);
