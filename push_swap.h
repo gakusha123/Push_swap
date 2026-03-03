@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 14:03:20 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/02 18:58:35 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:02:30 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ typedef struct s_opts
 t_list		*node_new(int value);
 void		stack_clear(t_list **stack);
 char		**ft_split(char const *s, char c);
-int			parse_input(int argc, char **argv, t_list **a, t_opts *opts);
+int			parse_input(int argc, char **argv, t_list **stack, t_opts *opts);
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
-size_t		ft_strlen(const char	*str);
-int			ft_atoi(const char *str);
+size_t		ft_strlen(const char	*s);
+int			ft_atoi(const char *s);
 void		ft_node_add_back(t_list **stack, t_list *new_node);
 int			sign_checker(const char *s, const char **p);
 int			ft_isdigit(char c);
-int			ft_strcmp_10(const char *a, const char *b);
+int			ft_strcmp_10(const char *s1, const char *s2);
 void		free_tokens(char **tokens);
-int			parse_error(t_list **a, char **tokens);
-size_t		stack_len(t_list *a);
-float		disorder(t_list *a);
-int			ft_strcmp(const char *a, const char *b);
+int			parse_error(t_list **stack, char **tokens);
+size_t		stack_len(t_list *stack);
+float		disorder(t_list *stack);
+int			ft_strcmp(const char *s1, const char *s2);
 int			is_flag(const char *s);
 int			set_strategy(t_opts *o, t_strategy s);
 int			parse_one_flag(const char *s, t_opts *o);
