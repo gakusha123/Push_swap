@@ -6,7 +6,7 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 15:12:27 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 15:13:30 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:27:56 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	swap_a(t_list **stack_a)
 	tmp = (*stack_a)->next->index;
 	(*stack_a)->next->index = (*stack_a)->index;
 	(*stack_a)->index = tmp;
-	write(1,"sa",2);
+	write(1,"sa\n",3);
 }
 void	swap_b(t_list **stack_b)
 {
@@ -38,7 +38,7 @@ void	swap_b(t_list **stack_b)
 	tmp = (*stack_b)->next->index;
 	(*stack_b)->next->index =(*stack_b)->index;
 	(*stack_b)->index = tmp;
-	write(1,"sb",2);
+	write(1,"sb\n",3);
 }
 
 void    swap_ab(t_list **stack_a, t_list **stack_b)
@@ -46,7 +46,7 @@ void    swap_ab(t_list **stack_a, t_list **stack_b)
 	// ss : sa and sb at the same time.
 	swap_a(stack_a);
 	swap_b(stack_b);
-	write(1,"ss",2);
+	write(1,"ss\n",3);
 }
 
 void    push_a(t_list   **stack_a, t_list **stack_b)
@@ -67,8 +67,8 @@ void    push_a(t_list   **stack_a, t_list **stack_b)
 		node->prev->next = node->next;
 		*stack_b = node->next;
 	}
-	ft_lstadd_front(stack_a, node);
-	write(1,"pa",2);
+	ft_node_add_front(stack_a, node);
+	write(1,"pa\n",3);
 }
 
 void	push_b(t_list   **stack_b, t_list **stack_a)
@@ -89,46 +89,46 @@ void	push_b(t_list   **stack_b, t_list **stack_a)
 		node->prev->next = node->next;
 		*stack_a = node->next;
 	}
-	ft_lstadd_front(stack_b, node);
-	write(1,"pb",2);
+	ft_node_add_front(stack_b, node);
+	write(1,"pb\n",3);
 }
 void	rotate_a(t_list **stack_a)
 {
 	// ra : rotate a - shift up all elements of stack a by 1.
 	//  The first element becomes the last one.
 	*stack_a = (*stack_a)->next;
-	write(1,"ra",2);
+	write(1,"ra\n",3);
 }
 
 void	rotate_b(t_list **stack_b)
 {
 	//rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
 	*stack_b = (*stack_b)->next;
-	write(1,"rb",2);
+	write(1,"rb\n",3);
 }
 void	rotate_ab(t_list **stack_a, t_list **stack_b)
 {
 	// rr : ra and rb at the same time.
 	rotate_a(stack_a);
 	rotate_b(stack_b);
-	write(1,"rr",2);
+	write(1,"rr\n",3);
 }
 void	rev_rotate_a(t_list **stack_a)
 {
 	// rra : reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
 	*stack_a = (*stack_a)->prev;
-	write(1,"rra",2);
+	write(1,"rra\n",4);
 }
 void    rev_rotate_b(t_list **stack_b)
 {
 	// rrb : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 	*stack_b = (*stack_b)->prev;
-	write(1,"rrb",2);
+	write(1,"rrb\n",4);
 }
 void    rev_rotate_ab(t_list **stack_a, t_list **stack_b)
 {
    // rrr : rra and rrb at the same time.
 	rev_rotate_a(stack_a);
 	rev_rotate_b(stack_b);
-	write(1,"rrr",2);
+	write(1,"rrr\n",4);
 }

@@ -6,11 +6,22 @@
 /*   By: btheveny <btheveny@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 18:59:55 by btheveny          #+#    #+#             */
-/*   Updated: 2026/03/03 15:10:16 by btheveny         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:57:45 by btheveny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	flag_dispatcher(t_opts opts)
+{
+	if (opts.bench)
+		printf("ok bench active \n");
+	return(1);
+}
+
+
+
+
 
 int	main(int argc, char **argv)
 {
@@ -34,10 +45,15 @@ int	main(int argc, char **argv)
 	stack_print(stack_a);
 	printf("This is stack_b : ");
 	stack_print(stack_b);
+	flag_dispatcher()
 
-	len = stack_len(stack_a);
-	simple_sort(&stack_a, &stack_b, len);
-	stack_print(stack_a);
+
+//	len = stack_len(stack_a);
+//	simple_sort(&stack_a, &stack_b, len);
+//	stack_print(stack_a);
+
+
+
 	/* choisir + exécuter la stratégie ici (simple/medium/complex/adaptive) */
 	/* un prototype des fonctions de tri par exemple serait genre
 	void sort_simple(t_list **a, t_list **b, const t_opts *opts)

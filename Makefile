@@ -9,8 +9,7 @@ SRC = parser.c \
 	utils/utils.c \
 	utils/parser_utils2.c \
 	main.c \
-	simple_sort.c \
-	sorting_opps.c \
+	utils/simple_sort.c \
 
 #tu captes la syntaxe pour les fonctions dans un fichier pour que le nakefile les retrouve
 
